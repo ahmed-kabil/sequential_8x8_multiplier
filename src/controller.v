@@ -11,7 +11,9 @@ localparam s0 = 0 , s1 = 1 , s2 = 2 , s3 = 3 , s4 = 4 , s5 = 5 ;
 reg [2:0]state ;
 always @ (posedge clk , negedge reset_n)
 begin
-if (~reset_n | change)
+if (~reset_n)
+  state = s0 ;
+else if (change)
   state = s0 ;
 else
   begin
